@@ -1,58 +1,60 @@
-# Matrice Interactive des Menaces pour Systemes d Intelligence Artificielle
+# Matrice Interactive des Menaces pour Systèmes d'Intelligence Artificielle
 
 [![Live Demo](https://img.shields.io/badge/GitHub%20Pages-Live%20Demo-38bdf8?style=for-the-badge)](https://tavardt-france.github.io/ai-threat-matrix-fr/)
 [![Standard](https://img.shields.io/badge/Standard-OWASP%20LLM%20%26%20MITRE-3b82f6?style=for-the-badge)](https://tavardt-france.github.io/ai-threat-matrix-fr/)
 [![Privacy](https://img.shields.io/badge/Privacy-100%25%20Client--Side-10b981?style=for-the-badge)](https://tavardt-france.github.io/ai-threat-matrix-fr/)
 [![License](https://img.shields.io/badge/License-MIT-slate?style=for-the-badge)](LICENSE)
 
-Matrice interactive des menaces et guide de mitigation pour applications avec modeles de langage et IA. Fonde sur OWASP LLM et MITRE ATLAS.
+Matrice interactive des menaces et guide de mitigation pour applications avec modèles de langage et IA. Fondé sur OWASP LLM et MITRE ATLAS.
 
-Concu pour les organisations et equipes techniques en **France**, ce depot fournit un outil autonome pour cartographier les menaces et generer des directives de durcissement pour les modeles de langage et agents d Intelligence Artificielle.
+Conçu pour les organisations, chercheurs et équipes d'ingénierie en **France**, ce référentiel propose une matrice structurée pour évaluer la posture défensive et générer des plans de sécurisation pour les modèles de langage et les agents d'Intelligence Artificielle autonomes.
 
 ---
 
-## Modes d Utilisation
+## Modes d'Utilisation
 
-### 1. Application Web Client (GitHub Pages)
-Accessible directement depuis un navigateur web :
-- **Lien Officiel** : [https://tavardt-france.github.io/ai-threat-matrix-fr/](https://tavardt-france.github.io/ai-threat-matrix-fr/)
-- **Confidentialite Native** : Execution 100% cote client dans le moteur JavaScript de votre navigateur. Aucune donnee n est transmise vers des serveurs tiers.
+### 1. Application Web dans le Navigateur (GitHub Pages)
+Accédez à la version interactive directement dans votre navigateur :
+- **Adresse Officielle** : [https://tavardt-france.github.io/ai-threat-matrix-fr/](https://tavardt-france.github.io/ai-threat-matrix-fr/)
+- **Confidentialité par Conception** : Traitement exécuté à 100% dans le moteur JavaScript de votre navigateur. Aucune donnée architecturale ni résultat n'est transmis à des serveurs tiers.
 
-### 2. Outil en Ligne de Commande (CLI)
-Pour les flux d integration continue (CI/CD) ou les audits locaux :
+### 2. Utilitaire en Ligne de Commande (CLI)
+Pour les audits automatisés dans les pipelines CI/CD ou l'évaluation locale :
 
 ```bash
-# Evaluation de base pour profil d agent autonome
+# Évaluation standard avec profil d'agent autonome
 python threat_matrix_evaluator.py --arch agent
 
-# Generation de Blueprint de Securisation au format Markdown
+# Exportation du plan de sécurisation en Markdown
 python threat_matrix_evaluator.py --arch rag --export-blueprint hardening-blueprint.md
 
-# Mode strict pour pipeline CI/CD (echec avec code 1 en cas de vecteur vulnerable)
+# Validation avec fichier de profil de contrôles défensifs
 python threat_matrix_evaluator.py --profile profile.json --strict
 
-# Export structure en JSON
+# Sortie structurée en JSON pour automatisations
 python threat_matrix_evaluator.py --arch agent --json
 ```
 
 ---
 
-## 10 Vecteurs de Menaces Evalues (OWASP Top 10 for LLMs)
+## 10 Vecteurs Critiques de Risque (OWASP Top 10 for LLMs)
 
-1. **Injection de Prompt (Directe et Indirecte)** : Contournement des consignes du modele via des entrees malveillantes ou du contexte externe.
-2. **Fuite de Donnees Sensibles** : Divulgation involontaire d informations confidentielles ou de secrets dans les reponses.
-3. **Vulnerabilites de la Chaine d Approvisionnement** : Paquets tiers non verifies, plugins defectueux ou modeles sans tracabilite.
-4. **Empoisonnement des Donnees et Modeles** : Corruption des jeux de donnees d entrainement ou bases documentaires.
-5. **Traitement Inapproprie des Sorties** : Execution directe sans assainissement des reponses du LLM par des interpretateurs de code.
-6. **Octroi Excessif d Autonomie** : Outils d agent dotes de droits etendus sans validation humaine prealable.
-7. **Fuite du Prompt Systeme** : Extraction de consignes internes ou de secrets integres au prompt de reference.
-8. **Faiblesses Vectorielles et Embeddings** : Injection de contenus falsifies dans la base vectorielle du RAG pour tromper le modele.
-9. **Hallucinations et Desinformation Critique** : Formulation d affirmations erronees dans des processus decisionnels sensibles.
-10. **Consommation Illimitee de Ressources** : Surcharge de calcul, attaques par deni de service ou couts de tokens disproportionnes.
+1. **Injection de Prompt (Directe et Indirecte)** : Contournement des consignes du modèle via des entrées malveillantes ou du contexte externe.
+2. **Fuite de Données Sensibles** : Divulgation involontaire d'informations confidentielles ou de secrets dans les réponses.
+3. **Vulnérabilités de la Chaîne d'Approvisionnement** : Paquets tiers non vérifiés, plugins défectueux ou modèles sans traçabilité.
+4. **Empoisonnement des Données et Modèles** : Corruption des jeux de données d'entraînement ou bases documentaires.
+5. **Traitement Inapproprié des Sorties** : Exécution directe sans assainissement des réponses du LLM par des interpréteurs de code.
+6. **Octroi Excessif d'Autonomie** : Outils d'agent dotés de droits étendus sans validation humaine préalable.
+7. **Fuite du Prompt Système** : Extraction de consignes internes ou de secrets intégrés au prompt de référence.
+8. **Faiblesses Vectorielles et Embeddings** : Injection de contenus falsifiés dans la base vectorielle du RAG pour tromper le modèle.
+9. **Hallucinations et Désinformation Critique** : Formulation d'affirmations erronées dans des processus décisionnels sensibles.
+10. **Consommation Illimitée de Ressources** : Surcharge de calcul, attaques par déni de service ou coûts de tokens disproportionnés.
 
 ---
 
-## Exemple d Integration GitHub Actions
+## Intégration CI/CD (GitHub Actions)
+
+Exemple de pipeline pour la vérification continue de la posture défensive :
 
 ```yaml
 name: AI Threat Matrix Gate
@@ -63,30 +65,30 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Configurer Python
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Executer Evaluation de la Matrice des Menaces
+      - name: Run AI Threat Matrix Assessment
         run: |
           python threat_matrix_evaluator.py --arch agent --strict
 ```
 
 ---
 
-## Cadre de Conformite
+## Conformité et Normes Techniques
 
 - **Juridiction** : France
-- **Referentiel Technique** : Referentiels de Securite de l IA, ANSSI, OWASP LLM et MITRE ATLAS
+- **Norme de Référence** : OWASP Top 10 pour Applications LLM et MITRE ATLAS
 - **Organisation Responsable** : [TAVARDT-France](https://github.com/TAVARDT-France)
 
-## Portails TAVARDT
+## Écosystème TAVARDT et Portails Officiels
 
-- **Portail Principal** : [https://ag.tavardt.com/fr/](https://ag.tavardt.com/fr/)
-- **Outils de Cybersecurite** : [https://tools.tavardt.com/fr/](https://tools.tavardt.com/fr/)
-- **Contact Technique** : [https://ag.tavardt.com/fr/contact/](https://ag.tavardt.com/fr/contact/)
+- **Portail Institutionnel** : [https://ag.tavardt.com/fr/](https://ag.tavardt.com/fr/)
+- **Portail d'Outils TAVARDT** : [https://tools.tavardt.com/fr/](https://tools.tavardt.com/fr/)
+- **Canal de Support Technique** : [https://ag.tavardt.com/fr/contact/](https://ag.tavardt.com/fr/contact/)
 
 ---
 
 ### Licence
-Distribue sous licence MIT. Consultez le fichier [LICENSE](LICENSE) pour plus d informations.
+Distribué sous Licence MIT. Consultez le fichier [LICENSE](LICENSE) pour plus de détails.
