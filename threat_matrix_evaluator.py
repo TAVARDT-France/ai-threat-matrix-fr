@@ -2,10 +2,10 @@
 # -*- coding: utf-8 -*-
 """
 TAVARDT France
-Matrice Interactive des Menaces pour Systemes d Intelligence Artificielle
-Matrice interactive des menaces et guide de mitigation pour applications avec modeles de langage et IA. Fonde sur OWASP LLM et MITRE ATLAS.
+Matrice Interactive des Menaces pour Systèmes d'Intelligence Artificielle
+Matrice interactive des menaces et guide de mitigation pour applications avec modèles de langage et IA. Fondé sur OWASP LLM et MITRE ATLAS.
 
-Standard: Referentiels de Securite de l IA, ANSSI, OWASP LLM et MITRE ATLAS
+Standard: OWASP Top 10 pour Applications LLM et MITRE ATLAS
 Repository: https://github.com/TAVARDT-France/ai-threat-matrix-fr
 Online Web App: https://tavardt-france.github.io/ai-threat-matrix-fr/
 """
@@ -18,15 +18,15 @@ from datetime import datetime
 
 THREAT_DEFINITIONS = [
     {"id": "LLM01", "code": "OWASP-LLM01", "title": "Injection de Prompt (Directe et Indirecte)", "weight": 15, "default": "exposed"},
-    {"id": "LLM02", "code": "OWASP-LLM02", "title": "Fuite de Donnees Sensibles", "weight": 12, "default": "partial"},
-    {"id": "LLM03", "code": "OWASP-LLM03", "title": "Vulnerabilites de la Chaine d Approvisionnement", "weight": 10, "default": "exposed"},
-    {"id": "LLM04", "code": "OWASP-LLM04", "title": "Empoisonnement des Donnees et Modeles", "weight": 10, "default": "exposed"},
-    {"id": "LLM05", "code": "OWASP-LLM05", "title": "Traitement Inapproprie des Sorties", "weight": 12, "default": "exposed"},
-    {"id": "LLM06", "code": "OWASP-LLM06", "title": "Octroi Excessif d Autonomie", "weight": 14, "default": "exposed"},
-    {"id": "LLM07", "code": "OWASP-LLM07", "title": "Fuite du Prompt Systeme", "weight": 8,  "default": "defended"},
+    {"id": "LLM02", "code": "OWASP-LLM02", "title": "Fuite de Données Sensibles", "weight": 12, "default": "partial"},
+    {"id": "LLM03", "code": "OWASP-LLM03", "title": "Vulnérabilités de la Chaîne d'Approvisionnement", "weight": 10, "default": "exposed"},
+    {"id": "LLM04", "code": "OWASP-LLM04", "title": "Empoisonnement des Données et Modèles", "weight": 10, "default": "exposed"},
+    {"id": "LLM05", "code": "OWASP-LLM05", "title": "Traitement Inapproprié des Sorties", "weight": 12, "default": "exposed"},
+    {"id": "LLM06", "code": "OWASP-LLM06", "title": "Octroi Excessif d'Autonomie", "weight": 14, "default": "exposed"},
+    {"id": "LLM07", "code": "OWASP-LLM07", "title": "Fuite du Prompt Système", "weight": 8,  "default": "defended"},
     {"id": "LLM08", "code": "OWASP-LLM08", "title": "Faiblesses Vectorielles et Embeddings", "weight": 7,  "default": "partial"},
-    {"id": "LLM09", "code": "OWASP-LLM09", "title": "Hallucinations et Desinformation Critique", "weight": 6,  "default": "defended"},
-    {"id": "LLM10", "code": "OWASP-LLM10", "title": "Consommation Illimitee de Ressources", "weight": 6,  "default": "exposed"}
+    {"id": "LLM09", "code": "OWASP-LLM09", "title": "Hallucinations et Désinformation Critique", "weight": 6,  "default": "defended"},
+    {"id": "LLM10", "code": "OWASP-LLM10", "title": "Consommation Illimitée de Ressources", "weight": 6,  "default": "exposed"}
 ]
 
 def evaluate_posture(arch, profile_states):
@@ -57,11 +57,11 @@ def evaluate_posture(arch, profile_states):
 
     score = round(total_score)
     if score >= 85:
-        posture = "SECURISE"
+        posture = "SÉCURISÉ"
     elif score >= 60:
         posture = "EN COURS"
     else:
-        posture = "VULNERABLE"
+        posture = "VULNÉRABLE"
 
     return {
         "architecture": arch,
@@ -79,7 +79,7 @@ def generate_blueprint_md(evaluation):
     md.append(f"- **Organization**: TAVARDT France")
     md.append(f"- **Evaluation Date**: {ts} UTC")
     md.append(f"- **Architecture Profile**: {evaluation['architecture'].upper()}")
-    md.append(f"- **Compliance Standard**: Referentiels de Securite de l IA, ANSSI, OWASP LLM et MITRE ATLAS")
+    md.append(f"- **Compliance Standard**: OWASP Top 10 pour Applications LLM et MITRE ATLAS")
     md.append(f"- **Hardening Score**: {evaluation['score']} / 100")
     md.append(f"- **Defensive Posture**: {evaluation['posture']}")
     md.append("")
@@ -99,12 +99,12 @@ def generate_blueprint_md(evaluation):
     return "\n".join(md)
 
 def main():
-    parser = argparse.ArgumentParser(description="Evaluateur de Posture de Securite en Intelligence Artificielle et Generateur de Blueprint.")
+    parser = argparse.ArgumentParser(description="Évaluateur de Posture de Sécurité en Intelligence Artificielle et Générateur de Blueprint.")
     parser.add_argument("--arch", choices=["agent", "rag", "chat", "api"], default="agent", help="Profil architectural de la solution (agent, rag, chat, api)")
-    parser.add_argument("--profile", help="Chemin vers le fichier JSON de statut des controles defensifs")
-    parser.add_argument("--export-blueprint", help="Exporter le blueprint de securisation en fichier Markdown")
-    parser.add_argument("--strict", action="store_true", help="Quitter avec code 1 en presence d un vecteur vulnerable")
-    parser.add_argument("--json", action="store_true", help="Afficher la sortie au format JSON structure")
+    parser.add_argument("--profile", help="Chemin vers le fichier JSON de profil de contrôles défensifs")
+    parser.add_argument("--export-blueprint", help="Exporter le blueprint de sécurisation au format Markdown")
+    parser.add_argument("--strict", action="store_true", help="Terminer avec le code 1 si un vecteur vulnérable est présent")
+    parser.add_argument("--json", action="store_true", help="Afficher la sortie au format JSON structuré")
 
     args = parser.parse_args()
 
@@ -128,14 +128,14 @@ def main():
         bp_content = generate_blueprint_md(eval_res)
         with open(args.export_blueprint, "w", encoding="utf-8") as bf:
             bf.write(bp_content)
-        print(f"Blueprint de securisation enregistre avec succes dans: {args.export_blueprint}")
+        print(f"Blueprint de sécurisation enregistré avec succès sous: {args.export_blueprint}")
 
     if args.json:
         print(json.dumps(eval_res, indent=2, ensure_ascii=False))
     else:
         print("=" * 64)
         print(f"MATRICE DES MENACES IA: TAVARDT France")
-        print(f"Standard: Referentiels de Securite de l IA, ANSSI, OWASP LLM et MITRE ATLAS")
+        print(f"Standard: OWASP Top 10 pour Applications LLM et MITRE ATLAS")
         print(f"Architecture: {eval_res['architecture'].upper()}")
         print(f"Hardening Score: {eval_res['score']} / 100")
         print(f"Defensive Posture: {eval_res['posture']}")
