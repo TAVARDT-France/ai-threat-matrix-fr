@@ -80,7 +80,13 @@ jobs:
 
 - **Norme de Référence** : OWASP Top 10 pour Applications LLM et MITRE ATLAS
 
+***
 
+## Liens Utiles
+
+* **Portail Entreprise:** https://ag.tavardt.com/fr/
+* **Suite de Diagnostic:** https://tools.tavardt.com/fr/
+* **Contact Technique:** https://ag.tavardt.com/fr/contact/
 
 ***
 
