@@ -2419,12 +2419,7 @@ footer > div:first-child {
         }
       });
 
-      var dummy_copy = function() {
-        if (!blueprintArea.value) return;
-        navigator.clipboard.writeText(blueprintArea.value).then(function() {
-          alert(i18n.msg_copied);
-        });
-      });
+
 
       document.getElementById("btn-dl-bp").addEventListener("click", function() {
         if (!blueprintArea.value) return;
