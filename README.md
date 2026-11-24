@@ -79,13 +79,8 @@ jobs:
 ## Conformité et Normes Techniques
 
 - **Norme de Référence** : OWASP Top 10 pour Applications LLM et MITRE ATLAS
-- **Organisation Responsable** : [TAVARDT-France](https://github.com/TAVARDT-France)
 
-## Portails Officiels
 
-- **Portail Institutionnel** : [Portal Institucional](https://ag.tavardt.com/fr/)
-- **Portail d'Outils** : [Central de Ferramentas](https://tools.tavardt.com/fr/)
-- **Canal de Support Technique** : [Canal de Contato](https://ag.tavardt.com/fr/contact/)
 
 ***
 
