@@ -78,7 +78,6 @@ jobs:
 
 ## Conformité et Normes Techniques
 
-- **Juridiction** : France
 - **Norme de Référence** : OWASP Top 10 pour Applications LLM et MITRE ATLAS
 - **Organisation Responsable** : [TAVARDT-France](https://github.com/TAVARDT-France)
 
@@ -92,3 +91,7 @@ jobs:
 
 ### Licence
 Distribué sous Licence MIT. Consultez le fichier [LICENSE](LICENSE) pour plus de détails.
+
+***
+
+© 2026 TAVARDT. Tous droits réservés.
