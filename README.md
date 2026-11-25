@@ -1,9 +1,8 @@
 # Matrice Interactive des Menaces pour Systèmes d'Intelligence Artificielle
 
-[![Live Demo](https://img.shields.io/badge/GitHub%20Pages-Live%20Demo-38bdf8?style=for-the-badge)](https://tavardt-france.github.io/ai-threat-matrix-fr/)
-[![Standard](https://img.shields.io/badge/Standard-OWASP%20LLM%20%26%20MITRE-3b82f6?style=for-the-badge)](https://tavardt-france.github.io/ai-threat-matrix-fr/)
-[![Privacy](https://img.shields.io/badge/Privacy-100%25%20Client-Side-10b981?style=for-the-badge)](https://tavardt-france.github.io/ai-threat-matrix-fr/)
-[![License](https://img.shields.io/badge/License-MIT-slate?style=for-the-badge)](LICENSE)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-5b3cf5.svg)](https://tavardt-france.github.io/ai-threat-matrix-fr/)
+[![Python](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://www.python.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)](LICENSE)
 
 Matrice interactive des menaces et guide de mitigation pour applications avec modèles de langage et IA. Fondé sur OWASP LLM et MITRE ATLAS.
 
